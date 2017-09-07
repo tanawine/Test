@@ -1,2 +1,2 @@
 <?php
-MedicalBot "I am a bot";
+MedicineBot "I am a bot";
