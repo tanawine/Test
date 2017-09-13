@@ -1,7 +1,7 @@
 <?php
-$ composer require linecorp/line-bot-sdk
 $access_token = 'ceGK7OfWVezIqmYA6vaT8yKWGjIh3cWxp85z3eVukYddzOY30HArqOogToB25slO0jxOPrvaub9OSpjWFoKi0Gnwu50eNK812DPPfPKTLsnP01GhMa2ZjffTGNFb/EkXo1xSLLsQq8AjPv5x6QOO6gdB04t89/1O/w1cDnyilFU=';
- 
+$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('ceGK7OfWVezIqmYA6vaT8yKWGjIh3cWxp85z3eVukYddzOY30HArqOogToB25slO0jxOPrvaub9OSpjWFoKi0Gnwu50eNK812DPPfPKTLsnP01GhMa2ZjffTGNFb/EkXo1xSLLsQq8AjPv5x6QOO6gdB04t89/1O/w1cDnyilFU=');
+$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => 'swu']);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Get POST body content
 $content = file_get_contents('php://input');
@@ -35,15 +35,14 @@ if (!is_null($events['events'])) {
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 			$ch = curl_init($url);
 		} else if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "สวัสดี") {
-			$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
-			$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => '<channel secret>']);
 			
 			// Get text sent
 			//$text = "ดีครัชชชชชชชช " . $event['source']['userId'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			
-			$response = $bot->replyText($replyToken, ' สวัสดีรับ ผมคือ Bot ยา ');
+			$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('สวัสดีรับ ผมคือ Bot ยา');
+			$response = $bot->replyMessage($replyToken, $textMessageBuilder);
 			
 			// Build message to reply back
 			//$messages = [
