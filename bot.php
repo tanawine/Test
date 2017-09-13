@@ -134,5 +134,4 @@ if (!is_null($events['events'])) {
 	}
 }
 //echo "OK1";
-//echo "OK2";
-echo "OK3";
+echo "OK22";
