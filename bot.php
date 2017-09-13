@@ -1,7 +1,6 @@
 <?php
 $access_token = 'ceGK7OfWVezIqmYA6vaT8yKWGjIh3cWxp85z3eVukYddzOY30HArqOogToB25slO0jxOPrvaub9OSpjWFoKi0Gnwu50eNK812DPPfPKTLsnP01GhMa2ZjffTGNFb/EkXo1xSLLsQq8AjPv5x6QOO6gdB04t89/1O/w1cDnyilFU=';
-//$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('ceGK7OfWVezIqmYA6vaT8yKWGjIh3cWxp85z3eVukYddzOY30HArqOogToB25slO0jxOPrvaub9OSpjWFoKi0Gnwu50eNK812DPPfPKTLsnP01GhMa2ZjffTGNFb/EkXo1xSLLsQq8AjPv5x6QOO6gdB04t89/1O/w1cDnyilFU=');
-//$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => 'swu']);
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Get POST body content
 $content = file_get_contents('php://input');
@@ -37,27 +36,24 @@ if (!is_null($events['events'])) {
 		} else if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "สวัสดี") {
 			
 			// Get text sent
-			//$text = "ดีครัชชชชชชชช " . $event['source']['userId'];
+			$text = "ดีครัชชชชชชชช " . $event['source']['userId'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			
-			//$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('สวัสดีรับ ผมคือ Bot ยา');
-			//$response = $bot->replyMessage($replyToken, $textMessageBuilder);
-			
 			// Build message to reply back
-			//$messages = [
-			//	'type' => 'text',
-			//	'text' => $text
-			//];
+			$messages = [
+				'type' => 'text',
+				'text' => $text
+			];
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
-			//$data = [
-			//	'replyToken' => $replyToken,
-			//	'messages' => [$messages],
-			//];
-			//$post = json_encode($data);
-			//$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-			//$ch = curl_init($url);
+			$data = [
+				'replyToken' => $replyToken,
+				'messages' => [$messages],
+			];
+			$post = json_encode($data);
+			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+			$ch = curl_init($url);
 		}
 			//$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
