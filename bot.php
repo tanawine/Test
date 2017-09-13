@@ -35,7 +35,7 @@ if (!is_null($events['events'])) {
 			$ch = curl_init($url);
 		} else if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "สวัสดี") {
 			// Get text sent
-			$text = "ดีครัชชชชชชชช ";
+			$text = "ดีครัชชชชชชชช " . $event['source']['userId'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			// Build message to reply back
@@ -64,5 +64,5 @@ if (!is_null($events['events'])) {
 			echo $result . "\r\n";
 	}
 }
-echo "OK1";
-//echo "OK22";
+//echo "OK1";
+echo "OK22";
