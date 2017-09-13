@@ -1,7 +1,7 @@
 <?php
 $access_token = 'ceGK7OfWVezIqmYA6vaT8yKWGjIh3cWxp85z3eVukYddzOY30HArqOogToB25slO0jxOPrvaub9OSpjWFoKi0Gnwu50eNK812DPPfPKTLsnP01GhMa2ZjffTGNFb/EkXo1xSLLsQq8AjPv5x6QOO6gdB04t89/1O/w1cDnyilFU=';
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('ceGK7OfWVezIqmYA6vaT8yKWGjIh3cWxp85z3eVukYddzOY30HArqOogToB25slO0jxOPrvaub9OSpjWFoKi0Gnwu50eNK812DPPfPKTLsnP01GhMa2ZjffTGNFb/EkXo1xSLLsQq8AjPv5x6QOO6gdB04t89/1O/w1cDnyilFU=');
-$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => 'swu']);
+//$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => 'swu']);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Get POST body content
 $content = file_get_contents('php://input');
@@ -41,8 +41,8 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			
-			$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('สวัสดีรับ ผมคือ Bot ยา');
-			$response = $bot->replyMessage($replyToken, $textMessageBuilder);
+			//$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('สวัสดีรับ ผมคือ Bot ยา');
+			//$response = $bot->replyMessage($replyToken, $textMessageBuilder);
 			
 			// Build message to reply back
 			//$messages = [
