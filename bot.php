@@ -57,7 +57,7 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "ไร") {
 			// Get text sent
-			$text = "อะไรละ ^__^ ";
+			$text = "อะไรสัส  ";
 			
 			// Get replyToken
 			$replyToken = $event['replyToken'];
@@ -76,7 +76,8 @@ if (!is_null($events['events'])) {
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-
+		}
+		
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -87,9 +88,9 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 
 			echo $result . "\r\n";
-		}
+		
 	}
 }
-echo "OK1";
-//echo "OK2";
+//echo "OK1";
+echo "OK2";
 //echo "OK3";
