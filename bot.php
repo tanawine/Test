@@ -76,7 +76,49 @@ if (!is_null($events['events'])) {
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-		}
+		} else if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "สวัสดี") {
+			// Get text sent
+			$text = "สวัสดีคีับ คุณคือ",$event['source']['userId'];
+			
+			// Get replyToken
+			$replyToken = $event['replyToken'];
+			
+			// Build message to reply back
+			$messages = [
+				'type' => 'text',
+				'text' => $text
+			];
+
+			// Make a POST Request to Messaging API to reply to sender
+			$url = 'https://api.line.me/v2/bot/message/reply';
+			$data = [
+				'replyToken' => $replyToken,
+				'messages' => [$messages],
+			];
+			$post = json_encode($data);
+			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+		}else if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "ทำไรได้บ้าง") {
+			// Get text sent
+			$text = "วิธีใช้ Bot คือ \n1. กกกกก  \n2. ขขขขข \n3. คคคคค  ";
+			
+			// Get replyToken
+			$replyToken = $event['replyToken'];
+			
+			// Build message to reply back
+			$messages = [
+				'type' => 'text',
+				'text' => $text
+			];
+
+			// Make a POST Request to Messaging API to reply to sender
+			$url = 'https://api.line.me/v2/bot/message/reply';
+			$data = [
+				'replyToken' => $replyToken,
+				'messages' => [$messages],
+			];
+			$post = json_encode($data);
+			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+		}  
 		
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
@@ -92,5 +134,5 @@ if (!is_null($events['events'])) {
 	}
 }
 //echo "OK1";
-echo "OK2";
-//echo "OK3";
+//echo "OK2";
+echo "OK3";
