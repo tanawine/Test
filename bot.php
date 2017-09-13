@@ -90,4 +90,6 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
-echo "OK";
+echo "OK1";
+//echo "OK2";
+//echo "OK3";
