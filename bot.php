@@ -16,7 +16,7 @@ if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && strpos($text1,$textUser)) { //&& $event['message']['text'] == "ไร"
+		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && strpos($textUser,$text1)) { //&& $event['message']['text'] == "ไร"
 			// Get text sent
 			$text = "อะไรสัส  ";
 			
@@ -71,5 +71,5 @@ if (!is_null($events['events'])) {
 			echo $result . "\r\n";
 	}
 }
-echo "OK1";
-//echo "OK22";
+//echo "OK1";
+echo "OK22";
