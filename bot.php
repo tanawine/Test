@@ -1,6 +1,11 @@
 <?php
 $access_token = 'ceGK7OfWVezIqmYA6vaT8yKWGjIh3cWxp85z3eVukYddzOY30HArqOogToB25slO0jxOPrvaub9OSpjWFoKi0Gnwu50eNK812DPPfPKTLsnP01GhMa2ZjffTGNFb/EkXo1xSLLsQq8AjPv5x6QOO6gdB04t89/1O/w1cDnyilFU=';
 
+$textUser = $event['message']['text'];
+$text1 = "ไร";
+
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Get POST body content
 $content = file_get_contents('php://input');
@@ -11,7 +16,7 @@ if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "ไร") {
+		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && strpos($text1,$textUser)) { //&& $event['message']['text'] == "ไร"
 			// Get text sent
 			$text = "อะไรสัส  ";
 			
