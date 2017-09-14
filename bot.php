@@ -17,9 +17,9 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		 $textUser = $event['message']['text'];
 		 $text1 = "ไร";
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && strpos($textUser,"ไร") ) { //&& $event['message']['text'] == "ไร"
+		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && strpos($textUser,"ปวดหัว") ) { //&& $event['message']['text'] == "ไร"
 			// Get text sent
-			$text = "อะไรสัส  ";
+			$text = " ข้อความยังไม่ได้ตั้ง อิอิ ";
 			
 			// Get replyToken
 			$replyToken = $event['replyToken'];
@@ -39,10 +39,10 @@ if (!is_null($events['events'])) {
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 			$ch = curl_init($url);
-		} else if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "สวัสดี") {
+		} else if ($event['type'] == 'message' && $event['message']['type'] == 'text' && strpos($textUser,"สวัสดี")) {
 			
 			// Get text sent
-			$text = "ดีครัชชชชชชชช " . $event['source']['userId'];
+			$text = "ดีครับ คุณ  " . $event['source']['userId'] . "\nวิธีใช้ Medicinebot \n1. aaaa \n2.bbbb \n3.dddd";
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			
@@ -73,4 +73,4 @@ if (!is_null($events['events'])) {
 	}
 }
 //echo "OK1";
-echo "OK22";
+echo "OK55";
