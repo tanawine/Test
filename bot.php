@@ -11,7 +11,7 @@ if (!is_null($events['events'])) {
 	foreach ($events['events'] as $event) {		
 		
 		// Reply only when message sent is in 'text' format
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && strpos($event['message']['text'], "สวัสดี")) {
+		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && strpos($events['message']['text'], "สวัสดี")) {
 			// Get text sent
 			$text = "สวัสดีครับ คุณ User :  ".$event['source']['userID'];
 			// Get replyToken
@@ -33,7 +33,7 @@ if (!is_null($events['events'])) {
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 			$ch = curl_init($url);
 			
-		} else if ($event['type'] == 'message' && $event['message']['type'] == 'text' && strpos($event['message']['text'], "ปวดหัว")) {
+		} else if ($event['type'] == 'message' && $event['message']['type'] == 'text' && strpos($events['message']['text'], "ปวดหัว")) {
 			// Get text sent
 			$text = "อาการปวดหัว เกิดจากการ .... แนะนำให้รับประทานยา ..... ".$event['source']['userID'];
 			// Get replyToken
@@ -69,5 +69,5 @@ if (!is_null($events['events'])) {
 	}
 }
 //echo "OK";
-echo "55";
-//echo "66";
+//echo "55";
+echo "66";
