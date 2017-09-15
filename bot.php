@@ -10,11 +10,11 @@ if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
-		 $textUser = $events['message']['text'];
+		 $textUser = $event['message']['text'];
 		 $text1 = "ไร";
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && strpos($textUser,"ไร") ) { //&& $event['message']['text'] == "ไร"
+		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && strpos( $textUser,"ไร") ) { //&& $event['message']['text'] == "ไร"
 			// Get text sent
-			$text = "อะไรสัส  ";
+			$text = "วิธีใช้งาน คือ 1.  ";
 			
 			// Get replyToken
 			$replyToken = $event['replyToken'];
