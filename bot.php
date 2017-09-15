@@ -3,16 +3,16 @@ $access_token = 'ceGK7OfWVezIqmYA6vaT8yKWGjIh3cWxp85z3eVukYddzOY30HArqOogToB25sl
 
 // Get POST body content
 $content = file_get_contents('php://input');
-// Parse JSON
+//Parse JSON
 $events = json_decode($content, true);
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
+		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "สวัสดี"  ) {
 			// Get text sent
-			$text = $event['message']['text'];
+			$text = "สวัสดีครับ ผมชื่อ ";
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
@@ -30,8 +30,10 @@ if (!is_null($events['events'])) {
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-
 			$ch = curl_init($url);
+			
+		}
+		
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
@@ -41,7 +43,8 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 
 			echo $result . "\r\n";
-		}
 	}
 }
-echo "OK";
+//echo "OK";
+//echo "55";
+echo "66";
