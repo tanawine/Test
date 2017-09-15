@@ -10,7 +10,7 @@ if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
-		 $textUser = $event['message']['text'];
+		 $textUser = $events['message']['text'];
 		 $text1 = "ไร";
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && strpos($textUser,"ไร") ) { //&& $event['message']['text'] == "ไร"
 			// Get text sent
@@ -34,12 +34,11 @@ if (!is_null($events['events'])) {
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 			$ch = curl_init($url);
 		} else if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "สวัสดี") {
-			
 			// Get text sent
 			$text = "ดีครัชชชชชชชช " . $event['source']['userId'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-			
+	
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
@@ -67,4 +66,4 @@ if (!is_null($events['events'])) {
 	}
 }
 //echo "OK1";
-echo "OK22";
+//echo "OK22";
