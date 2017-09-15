@@ -34,7 +34,7 @@ if (!is_null($events['events'])) {
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 			$ch = curl_init($url);
-		} else if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "สวัสดี") {
+		} else if ($event['message']['text'] == "สวัสดี") {
 			// Get text sent
 			$text = "ดีครัชชชชชชชช ไร " . $event['source']['userId'];
 			// Get replyToken
@@ -66,5 +66,5 @@ if (!is_null($events['events'])) {
 			echo $result . "\r\n";
 	}
 }
-echo "OK111";
-//echo "OK222222";
+//echo "OK111";
+echo "OK222222";
