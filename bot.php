@@ -43,7 +43,7 @@ if (!is_null($events['events'])) {
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 			$ch = curl_init($url);
-		} else if ($event['message']['text'] == "สวัสดี" && $TestBoolean ) {
+		} else if ($event['message']['text'] == "สวัสดี" && ) {
 			// Get text sent
 			$text = "ดีครัชชชชชชชช ไร " . $event['source']['userId'].$textUser."กับ";
 			// Get replyToken
