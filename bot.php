@@ -13,7 +13,7 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		 $textUser = $event['message']['text'];
 		
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $textUser = $event['message']['text']== "อะไร" ) { //&& $event['message']['text'] == "ไร"
+		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text']== "อะไร" ) { //&& $event['message']['text'] == "ไร"
 			// Get text sen
 			$text = " ข้อความยังไม่ได้ตั้ง อิอิ ";    //strpos($textUser,"ปวดหัว")
 			
