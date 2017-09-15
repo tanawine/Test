@@ -38,7 +38,7 @@ if (!is_null($events['events'])) {
 		} else if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "ไร" ) {
 			
 			// Get text sent
-			$text = "ดีครับ คุณ  " . $event['source']['userId']."วิธีใช้ Medicinebot 1. aaaa 2.bbbb 3.dddd";
+			$text = "ดีครับ คุณ  " . $event['source']['userId'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			
