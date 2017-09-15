@@ -11,10 +11,11 @@ if (!is_null($events['events'])) {
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
 		
-		 $textUser = $event['message']['text'];
+		 //$textUser = $event['message']['text'];
 		 //$TestBoolean;
-		 $test1 = $strpos($textUser,"ดี");
-		if($test>0){
+		 $textUser = "ธนวินท์ไร"
+		 $number = $strpos($textUser,"ท์");
+		if($number>0){
 			$TestBoolean = true;
 		} else {
 			$TestBoolean = false;
@@ -74,5 +75,5 @@ if (!is_null($events['events'])) {
 			echo $result . "\r\n";
 	}
 }
-echo "OK111";
-//echo "OK222222";
+//echo "OK111";
+echo "OK222222";
