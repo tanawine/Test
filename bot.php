@@ -12,8 +12,14 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		
 		 $textUser = $event['message']['text'];
-		 $text1 = "ไร";
-		 //$test1 = $strpos($textUser,"ดี");
+		 //$TestBoolean;
+		 $test1 = $strpos($textUser,"ดี");
+		if($test>0){
+			$TestBoolean = true;
+		} else {
+			$TestBoolean = false;
+		}
+		 
 		
 		if (strpos($event['message']['text'],"ไร") ) { //&& $event['message']['text'] == "ไร"
 			// Get text sent
@@ -36,7 +42,7 @@ if (!is_null($events['events'])) {
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 			$ch = curl_init($url);
-		} else if ($event['message']['text'] == "สวัสดี") {
+		} else if ($event['message']['text'] == "สวัสดี" && $TestBoolean ) {
 			// Get text sent
 			$text = "ดีครัชชชชชชชช ไร " . $event['source']['userId'].$textUser."กับ".$test1;
 			// Get replyToken
@@ -68,5 +74,5 @@ if (!is_null($events['events'])) {
 			echo $result . "\r\n";
 	}
 }
-//echo "OK111";
-echo "OK222222";
+echo "OK111";
+//echo "OK222222";
