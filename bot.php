@@ -13,7 +13,7 @@ if (!is_null($events['events'])) {
 		&textFromUser = $event['message']['text'];
 		
 		// Reply only when message sent is in 'text' format
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && strpos(&textFromUser, "สวัสดี")) {
+		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && strpos($event['message']['text'], "สวัสดี")) {
 			// Get text sent
 			$text = "สวัสดีครับ คุณ User :  ".$event['source']['userID'];
 			// Get replyToken
@@ -48,6 +48,6 @@ if (!is_null($events['events'])) {
 			echo $result . "\r\n";
 	}
 }
-//echo "OK";
+echo "OK";
 //echo "55";
-echo "66";
+//echo "66";
