@@ -13,6 +13,8 @@ if (!is_null($events['events'])) {
 		
 		 $textUser = $event['message']['text'];
 		 $text1 = "ไร";
+		 $test1 = $strpos($textUser,"วิน");
+		
 		if (strpos($event['message']['text'],"ไร") ) { //&& $event['message']['text'] == "ไร"
 			// Get text sent
 			$text = "อาการปวดหัว เกิดจากการ";
@@ -36,7 +38,7 @@ if (!is_null($events['events'])) {
 			$ch = curl_init($url);
 		} else if ($event['message']['text'] == "สวัสดี") {
 			// Get text sent
-			$text = "ดีครัชชชชชชชช ไร " . $event['source']['userId'].$textUser;
+			$text = "ดีครัชชชชชชชช ไร " . $event['source']['userId'].$textUser."++".$test1;
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 	
@@ -66,5 +68,5 @@ if (!is_null($events['events'])) {
 			echo $result . "\r\n";
 	}
 }
-echo "OK111";
-//echo "OK222222";
+//echo "OK111";
+echo "OK222222";
