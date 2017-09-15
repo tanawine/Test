@@ -13,7 +13,7 @@ if (!is_null($events['events'])) {
 		
 		 $textUser = $event['message']['text'];
 		 $text1 = "ไร";
-		 $test1 = $strpos($textUser,"วิน");
+		 $test1 = $strpos($textUser,"ดี");
 		
 		if (strpos($event['message']['text'],"ไร") ) { //&& $event['message']['text'] == "ไร"
 			// Get text sent
@@ -68,5 +68,5 @@ if (!is_null($events['events'])) {
 			echo $result . "\r\n";
 	}
 }
-//echo "OK111";
-echo "OK222222";
+echo "OK111";
+//echo "OK222222";
