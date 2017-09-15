@@ -1,10 +1,6 @@
 <?php
 $access_token = 'ceGK7OfWVezIqmYA6vaT8yKWGjIh3cWxp85z3eVukYddzOY30HArqOogToB25slO0jxOPrvaub9OSpjWFoKi0Gnwu50eNK812DPPfPKTLsnP01GhMa2ZjffTGNFb/EkXo1xSLLsQq8AjPv5x6QOO6gdB04t89/1O/w1cDnyilFU=';
 
-
-
-
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Get POST body content
 $content = file_get_contents('php://input');
@@ -16,7 +12,7 @@ if (!is_null($events['events'])) {
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
 		 $textUser = $event['message']['text'];
-		 $text1 = "ไร";
+		
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && strpos($textUser,"ปวดหัว") ) { //&& $event['message']['text'] == "ไร"
 			// Get text sent
 			$text = " ข้อความยังไม่ได้ตั้ง อิอิ ";
@@ -39,7 +35,7 @@ if (!is_null($events['events'])) {
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 			$ch = curl_init($url);
-		} else if ($event['type'] == 'message' && $event['message']['type'] == 'text' && strpos($textUser,"สวัสดี")) {
+		} else if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "ไร" ) {
 			
 			// Get text sent
 			$text = "ดีครับ คุณ  " . $event['source']['userId'] . "\nวิธีใช้ Medicinebot \n1. aaaa \n2.bbbb \n3.dddd";
@@ -72,5 +68,5 @@ if (!is_null($events['events'])) {
 			echo $result . "\r\n";
 	}
 }
-//echo "OK1";
-echo "OK55";
+//ho "OK1";
+echo "OK555;
