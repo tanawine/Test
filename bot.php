@@ -13,7 +13,7 @@ if (!is_null($events['events'])) {
 		
 		 $textUser = $event['message']['text'];
 		 $text1 = "ไร";
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && strpos($textUser,"ไร") ) { //&& $event['message']['text'] == "ไร"
+		if (strpos($textUser,"ไร") ) { //&& $event['message']['text'] == "ไร"
 			// Get text sent
 			$text = "อาการปวดหัว เกิดจากการ";
 			
@@ -66,5 +66,5 @@ if (!is_null($events['events'])) {
 			echo $result . "\r\n";
 	}
 }
-//echo "OK111";
-echo "OK222222";
+echo "OK111";
+//echo "OK222222";
